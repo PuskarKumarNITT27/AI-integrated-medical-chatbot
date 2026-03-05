@@ -8,6 +8,7 @@ packages = [
     "langchain-text-splitters",
     "pypdf",
     "sentence-transformers",
+    "steamlit",
     "dotenv"
 ]
 

@@ -61,17 +61,35 @@ compression_retriever = ContextualCompressionRetriever(
     base_compressor=compressor
 )
 
-user_query = input("Write user Query: ")
 
-results = compression_retriever.invoke(user_query)
+def ask_question(user_query):
 
-# print(f"Result: {results}")
+    results = compression_retriever.invoke(user_query)
 
-context = "\n\n".join(docs.page_content for docs in results)
+    context = "\n\n".join(docs.page_content for docs in results)
 
-final_prompt = prompt.invoke({"context":context,"question":user_query})
+    final_prompt = prompt.invoke({
+        "context": context,
+        "question": user_query
+    })
 
-result = chat_model.invoke(final_prompt)
+    result = chat_model.invoke(final_prompt)
 
-print(f"Final answer: {result.content}")
+    return result.content
+
+
+
+# user_query = input("Write user Query: ")
+
+# results = compression_retriever.invoke(user_query)
+
+# # print(f"Result: {results}")
+
+# context = "\n\n".join(docs.page_content for docs in results)
+
+# final_prompt = prompt.invoke({"context":context,"question":user_query})
+
+# result = chat_model.invoke(final_prompt)
+
+# print(f"Final answer: {result.content}")
 
