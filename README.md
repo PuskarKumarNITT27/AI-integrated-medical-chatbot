@@ -77,6 +77,3 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 ## 📄 License
 
 This project is open source. See `LICENSE` for more information.
-``
-
-> **Note:** The ` ``` ` closing fences above have a space added to prevent rendering — remove the space when using in your actual file.
