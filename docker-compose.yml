@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  medical-chatbot:
+    build: .
+    container_name: medical_chatbot
+
+    ports:
+      - "8501:8501"
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./vectorDatabase:/app/vectorDatabase
+
+    restart: unless-stopped
